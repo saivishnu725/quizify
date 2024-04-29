@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://www.github.com/saivishnu725/quizify-backend
+[submodule "frontend"]
+	path = frontend
+	url = https://www.github.com/saivishnu725/quizify-frontend
