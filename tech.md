@@ -1,5 +1,7 @@
+# Technologies used to build the project
+
 1. React
 2. Express
-3. EJS
-4. MariaDB
-5. MongoDB
+3. MariaDB
+4. MongoDB
+5. Bootstrap
