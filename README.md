@@ -17,18 +17,54 @@ A quiz site that can be used to create and host live quiz sessions
    ./node_dependencies.sh
    ```
 
-2. Run the server and the frontend site
+2. Create the local env files
+
+   1. Root .env
+
+      ```bash
+         NODE_ENV=development
+         MONGO_URI=mongodb://mongodb:27017/quizify
+         DB_HOST=mariadb
+         DB_USER=root
+         DB_PASSWORD=your_mongo_pass
+         DB_NAME=quizify
+         MYSQL_ROOT_PASSWORD=your_pass
+      ```
+
+   2. frontend/.env.local
+
+      ```bash
+         API_URL=http://localhost:2828 # same as the port below
+      ```
+
+   3. backend/.env
+
+      ```bash
+         PORT=2828 #edit the /backend/Dockerfile and the /docker-compose.yml to reflect this new port
+         MONGO_URI=mongodb://mongodb:27017/quizify
+         JWT_SECRET=your_pass
+
+      ```
+
+3. Run the entire site locally
 
    ```bash
-   chmod +x start.sh
-   ./start.sh
+      docker-compose up
    ```
 
-3. Site is live at `localhost:3000`. Open it in your preferred browser.
+4. Site is live at `localhost:4000`. Open it in your preferred browser.
 
 ## Collaborators
 
 Due to the nature of this project (individual project to present as the final project to receive this BCA degree), I believe that contributions will go against the morality. Do provide insights and suggestions, if any.
+
+## Developers Notes
+
+1. Access the mariadb
+
+   ```bash
+         docker exec -it <container_name_or_id> mariadb -uroot -p # use the id of mariadb by running `docker ps`
+   ```
 
 ## License
 
