@@ -34,7 +34,7 @@ services:
       - /app/node_modules
 
   mongodb:
-    image: mongo:latest
+    image: mongo:5.0.27
     ports:
       - "27017:27017"
     volumes:
@@ -42,7 +42,7 @@ services:
       - ./backend/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 
   mariadb:
-    image: mariadb:latest
+    image: mariadb:11.4
     ports:
       - "3306:3306"
     environment:
