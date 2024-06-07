@@ -54,6 +54,41 @@ A quiz site that can be used to create and host live quiz sessions
 
 4. Site is live at `localhost:4000`. Open it in your preferred browser.
 
+## Run it on Windows using WSL
+
+WSL: Windows Subsystem for Linux
+
+### Top-Level Steps
+
+1. Install "[Docker Desktop](https://www.docker.com/products/docker-desktop/)" app in Windows.
+2. Install '_Ubuntu_' from Microsoft Store.
+3. Set up the WSL through Ubuntu.
+4. Then install docker on Ubuntu.
+5. Copy the repo: `git clone --recurse-submodules -j8 https://github.com/saivishnu725/quizify`
+6. Run the docker compose: `cd quizify; docker-compose up`
+7. Site is open on port 4000: [http://localhost:4000](https://localhost:4000)
+8. If not, open _Docker Desktop_ to see if there is any issues or if it is still running. It usually takes 15-20mins to run all four images.
+
+### How to install Docker on WSL
+
+```bash
+   sudo apt update
+   sudo apt install ca-certificates curl
+   sudo install -m 0755 -d /etc/apt/keyrings
+   sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+   sudo chmod a+r /etc/apt/keyrings/docker.asc
+   echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   sudo apt update
+   sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose
+   sudo groupadd docker # this might have already happened but run it to be sure!
+   sudo usermod -aG docker $USER
+   #restart the system for it to work but if you dont want to restart, run the following command
+   newgrp docker
+
+   # run this to verify if the group permissions issue is fixed
+   docker run hello-world
+```
+
 ## Collaborators
 
 Due to the nature of this project (individual project to present as the final project to receive this BCA degree), I believe that contributions will go against the morality. Do provide insights and suggestions, if any.
